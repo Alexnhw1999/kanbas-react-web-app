@@ -30,7 +30,7 @@ export default function TOC() {
       <li>
         <Link
           id="wd-github"
-          to="https://github.com/XiyuanTu/kanbas-react-web-app"
+          to="https://github.com/Alexnhw1999/kanbas-react-web-app"
         >
           GitHub
         </Link>
