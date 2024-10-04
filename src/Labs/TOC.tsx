@@ -53,7 +53,7 @@ export default function TOC() {
       {/* LinkedIn Link */}
       <li className="nav-item">
         <a
-          href="https://www.linkedin.com/in/joyce-chen-1686b3199/"
+          href="https://www.linkedin.com/in/alexngan326/"
           className="nav-link"
           target="_blank"
           rel="noopener noreferrer"
@@ -65,7 +65,7 @@ export default function TOC() {
       {/* GitHub Link */}
       <li className="nav-item">
         <a
-          href="https://github.com/cchiehyu/kanbas-react-web-app-cs5610-fa24"
+          href="https://github.com/Alexnhw1999/kanbas-react-web-app"
           className="nav-link"
           target="_blank"
           rel="noopener noreferrer"

@@ -15,7 +15,7 @@ const courses = [
   },
   {
     code: 'CS5900',
-    name: 'Cyber security',
+    name: 'Cyber Hacking',
     term: 'Summer Full 2024',
   },
   {
