@@ -1,0 +1,83 @@
+[
+    {
+      "_id": "RS101",
+      "name": "Rocket Propulsion",
+      "number": "RS4550",
+      "startDate": "2023-01-10",
+      "endDate": "2023-05-15",
+      "department": "D123",
+      "credits": 4,
+       "image": "/images/na1.avif",
+      "description": "This course provides an in-depth exploration of the fundamental concepts and engineering techniques related to rocket propulsion. Students will learn about the physical principles governing rocket flight, including Newton's laws of motion and the rocket equation. The curriculum includes the study of different propulsion methods, including chemical, electric, and hybrid propulsion systems."
+    },
+      {
+      "_id": "RS102",
+      "name": "Aerodynamics",
+      "number": "RS4560",
+      "startDate": "2023-01-10",
+      "endDate": "2023-05-15",
+      "department": "D123",
+      "credits": 3,
+       "image": "/images/na2.jpeg",
+      "description": "This course offers a comprehensive introduction to the principles of aerodynamics, emphasizing the behavior of air as it interacts with solid objects, particularly those in motion such as aircraft, rockets, and cars. Students will explore both theoretical concepts and practical applications of aerodynamics in engineering and design."
+    
+      },
+        {
+      "_id": "RS103",
+      "name": "Spacecraft Design",
+      "number": "RS4570",
+      "startDate": "2023-01-10",
+      "endDate": "2023-05-15",
+      "department": "D123",
+      "credits": 4,
+       "image": "/images/na3.jpeg",
+      "description": "This course provides a comprehensive overview of the principles and practices involved in the design and development of spacecraft. It encompasses the interdisciplinary nature of spacecraft engineering, integrating aspects of mechanical, electrical, thermal, and systems engineering to create spaceborne systems capable of functioning in the harsh environment of space."
+    },
+    {
+      "_id": "CS 2800",
+      "name": "Logic and Computation",
+      "number": "CS 2800",
+      "startDate": "2024-01-10",
+      "endDate": "2024-05-15",
+      "department": "CS123",
+      "credits": 3,
+      "image": "/images/na4.jpeg",
+      "description": "Introduces formal logic and its connections to computer and information science. Offers an opportunity to learn to translate statements about the behavior of computer programs into logical claims and to gain the ability to prove such assertions both by hand and using automated tools. Considers approaches to proving termination, correctness, and safety for programs. Discusses notations used in logic, propositional and first order logic, logical inference, mathematical induction, and structural induction. Introduces the use of logic for modeling the range of artifacts and phenomena that arise in computer and information science."
+    },
+    {
+      "_id": "CS 2810",
+      "name": "Mathematics of Data Models",
+      "number": "CS 2810",
+      "startDate": "2024-01-10",
+      "endDate": "2024-05-15",
+      "department": "CS123",
+      "credits": 3,
+      "image": "/images/na5.jpeg",
+      "description": "Studies the methods and ideas in linear algebra, multivariable calculus, and statistics that are most relevant for the practicing computer scientist doing machine learning, modeling, or hypothesis testing with data. Covers least squares regression, finding eigenvalues to predict a linear system’s behavior"
+    },
+    {
+      "_id": "CS 3000",
+      "name": "Algorithms and Data",
+      "number": "CS 3000",
+      "startDate": "2024-01-10",
+      "endDate": "2024-05-15",
+      "department": "CS123",
+      "credits": 3,
+      "image": "/images/na6.jpeg",
+      "description": "Introduces the basic principles and techniques for the design, analysis, and implementation of efficient algorithms and data representations. Discusses asymptotic analysis and formal methods for establishing the correctness of algorithms. "
+    },
+    {
+      "_id": "CS 3200",
+      "name": "Introduction to Databases",
+      "number": "CS 3200",
+      "startDate": "2024-01-10",
+      "endDate": "2024-05-15",
+      "department": "Languages",
+      "credits": 3,
+      "image": "/images/na7.jpeg",
+      "description": "Studies the design of a database for use in a relational database management system. The entity-relationship model and normalization are used in problems. Relational algebra and then the SQL (structured query language) are presented. Advanced topics include triggers, stored procedures",
+      "author": "654f9ec2ea7ead465908d1e3"
+    }
+    
+    
+  ]

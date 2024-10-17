@@ -131,7 +131,7 @@ export default function Lab1() {
     <input type="text" id="wd-text-fields-first-name" title="John" /> <br />
     <label htmlFor="wd-text-fields-last-name">Last name:</label>
     <input type="text" id="wd-text-fields-last-name" placeholder="Doe"
-      value="Ngan" title="The last name" />
+      value="Wonderland" title="The last name" />
     {/* copy rest of form elements here  */}
     <h5>Text boxes</h5>
       <label>Biography:</label><br/>

@@ -7,20 +7,20 @@ export default function Profile() {
       <h3>Profile</h3>
       <input 
         id="wd-username" 
-        value="ikonation" 
+        value="HoWing" 
         placeholder="username" 
         className="form-control mb-2" 
       />
       <input 
         id="wd-password" 
-        value="456788" 
+        value="9090" 
         placeholder="password"
         type="password" 
         className="form-control mb-2" 
       />
       <input 
         id="wd-firstname" 
-        value="Alex" 
+        value="HoWing" 
         placeholder="First Name" 
         className="form-control mb-2" 
       />
@@ -32,13 +32,13 @@ export default function Profile() {
       />
       <input 
         id="wd-dob" 
-        value="1999-01-31" 
+        value="1999-01-01" 
         type="date" 
         className="form-control mb-2" 
       />
       <input 
         id="wd-email" 
-        value="alexnhw@gmail.com" 
+        value="nhwngan@gmail.com" 
         type="email" 
         className="form-control mb-2" 
       />
