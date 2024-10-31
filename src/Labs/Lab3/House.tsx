@@ -11,7 +11,7 @@ export default function House() {
         zip: "00100",
         country: "Italy",
       },
-      owners: ["HoWing", "Bob"],
+      owners: ["Alice", "Bob"],
     };
     console.log(house);
     return (

@@ -11,7 +11,7 @@ export default function TemplateLiterals() {
   const result2 = `2 + 3 = ${2 + 3}`;
   
   // Template literal with variable insertion
-  const username = "HoWing";
+  const username = "alice";
   const greeting1 = `Welcome home ${username}`;
   
   // Template literal with conditional expression
