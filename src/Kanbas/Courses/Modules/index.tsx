@@ -1,34 +1,61 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useParams } from 'react-router';
 import { BsGripVertical } from 'react-icons/bs';
 import ModuleControlButtons from './ModuleControlButtons';
 import ModulesControls from './ModulesControls';
 import { courses } from '../../Database';
 import { useSelector, useDispatch } from "react-redux";
-import { addModule, editModule, updateModule, deleteModule } from "./reducer";
+import { setModules, addModule, editModule, updateModule, deleteModule } from "./reducer";
+import * as coursesClient from "../client";
+import * as modulesClient from "../client";
 
 interface ModulesProps {
   courseCode?: string;
 }
 
 export default function Modules({ courseCode }: ModulesProps = {}) {
-  // Local state only for UI controls
+  
   const [isExpanded, setIsExpanded] = useState({
     module1: true,
     module2: true
   });
   const [moduleName, setModuleName] = useState("");
-
-  // Redux setup
-  const dispatch = useDispatch();
-  const modules = useSelector((state: any) => state.modulesReducer.modules);
   
-  // Route params
   const { cid } = useParams();
   const currentCourseId = courseCode || cid;
   const course = courses.find((course) => course._id === currentCourseId);
+ 
+  const dispatch = useDispatch();
+  const saveModule = async (module: any) => {
+    await modulesClient.updateModule(module);
+    dispatch(updateModule(module));
+  };
 
-  // UI handlers
+  const createModuleForCourse = async () => {
+    if (!cid) return;
+    const newModule = { name: moduleName, course: cid };
+    const module = await coursesClient.createModuleForCourse(cid, newModule);
+    dispatch(addModule(module));
+  };
+
+  const fetchModules = useCallback(async () => {
+    if (!cid) return;
+    const modules = await coursesClient.findModulesForCourse(cid as string);
+    dispatch(setModules(modules));
+  }, [cid, dispatch]);
+
+  useEffect(() => {
+    fetchModules();
+  }, [fetchModules]);
+
+  const modules = useSelector((state: any) => state.modulesReducer.modules);
+  const removeModule = async (moduleId: string) => {
+    await modulesClient.deleteModule(moduleId);
+    dispatch(deleteModule(moduleId));
+  };
+
+
+
   const toggleModule = (moduleId: 'module1' | 'module2') => {
     setIsExpanded(prev => ({
       ...prev,
@@ -55,22 +82,19 @@ export default function Modules({ courseCode }: ModulesProps = {}) {
       <h2>Course {course && course.number}</h2>
 
       {/* Modules Controls */}
-      <ModulesControls 
-        onCollapseAll={handleCollapseAll} 
-        onExpandAll={handleExpandAll} 
-        setModuleName={setModuleName} 
-        moduleName={moduleName} 
-        addModule={() => {
-          dispatch(addModule({ name: moduleName, course: currentCourseId }));
-          setModuleName("");
-        }}
+      <ModulesControls
+        onCollapseAll={handleCollapseAll}
+        onExpandAll={handleExpandAll}
+        setModuleName={setModuleName}
+        moduleName={moduleName}
+        addModule={createModuleForCourse}
       />
       <br /><br /><br /><br />
 
       {/* Dynamic modules */}
       <ul className="list-group rounded-0">
         {modules
-          .filter((module: any) => module.course === currentCourseId)
+          //.filter((module: any) => module.course === currentCourseId)
           .map((module: any) => (
             <li key={module._id} className="wd-module list-group-item p-0 mb-5 fs-5 border-gray">
               <div className="wd-title p-3 ps-2 bg-secondary">
@@ -78,14 +102,15 @@ export default function Modules({ courseCode }: ModulesProps = {}) {
                 {!module.editing ? (
                   module.name
                 ) : (
-                  <input 
+                  <input
                     className="form-control w-50 d-inline-block"
-                    onChange={(e) => 
+                    onChange={(e) =>
                       dispatch(updateModule({ ...module, name: e.target.value }))
                     }
                     onKeyDown={(e) => {
                       if (e.key === "Enter") {
-                        dispatch(updateModule({ ...module, editing: false }));
+                        saveModule({ ...module, editing: false });
+
                       }
                     }}
                     defaultValue={module.name}
@@ -93,7 +118,7 @@ export default function Modules({ courseCode }: ModulesProps = {}) {
                 )}
                 <ModuleControlButtons
                   moduleId={module._id}
-                  deleteModule={(moduleId) => dispatch(deleteModule(moduleId))}
+                  deleteModule={(moduleId) => removeModule(moduleId)}
                   editModule={(moduleId) => dispatch(editModule(moduleId))}
                 />
               </div>
@@ -115,8 +140,8 @@ export default function Modules({ courseCode }: ModulesProps = {}) {
       <ul className="list-group rounded-0 mt-4">
         {/* Week 1, Lecture 1 */}
         <li className="wd-module list-group-item p-0 mb-5 fs-5 border-gray">
-          <div 
-            className="d-flex align-items-center" 
+          <div
+            className="d-flex align-items-center"
             onClick={() => toggleModule('module1')}
             style={{ cursor: 'pointer' }}
           >
@@ -126,10 +151,10 @@ export default function Modules({ courseCode }: ModulesProps = {}) {
             </div>
           </div>
           <ModuleControlButtons
-          moduleId={module.id}
-          deleteModule={deleteModule}
-          editModule={editModule}/>
-          
+            moduleId={module.id}
+            deleteModule={deleteModule}
+            editModule={editModule} />
+
           {isExpanded.module1 && (
             <ul className="list-group rounded-0">
               <li className="list-group-item p-0">
@@ -162,7 +187,7 @@ export default function Modules({ courseCode }: ModulesProps = {}) {
 
         {/* Week 1, Lecture 2 */}
         <li className="wd-module list-group-item p-0 mb-5 fs-5 border-gray">
-          <div 
+          <div
             className="d-flex align-items-center"
             onClick={() => toggleModule('module2')}
             style={{ cursor: 'pointer' }}
@@ -173,10 +198,10 @@ export default function Modules({ courseCode }: ModulesProps = {}) {
             </div>
           </div>
           <ModuleControlButtons
-        moduleId={module.id}
-        deleteModule={deleteModule}
-        editModule={editModule}/>
-          
+            moduleId={module.id}
+            deleteModule={deleteModule}
+            editModule={editModule} />
+
           {isExpanded.module2 && (
             <ul className="list-group rounded-0">
               <li className="list-group-item p-0">
