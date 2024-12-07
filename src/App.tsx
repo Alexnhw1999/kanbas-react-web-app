@@ -9,7 +9,7 @@ export default function App() {
     <div>
       {/* Main heading and subheading */}
       {/* <h1>Welcome to CS5610 Fall - Kanbas Web App Dev</h1>
-      <h2>Chieh-Yu (Joyce) Chen</h2> */}
+      <h2>Xiyuan Tu</h2> */}
 
       {/* Router Setup */}
       <HashRouter>
@@ -19,14 +19,6 @@ export default function App() {
           <Route path="/Kanbas/*" element={<Kanbas />} />
         </Routes>
       </HashRouter>
-
-      {/* Placeholder for other sections */}
-      <h4>Anchor tag</h4>
-      Please
-      <a id="wd-lipsum" href="https://www.lipsum.com"> click here </a>
-      to get dummy text<br />
-      <a id="wd-github" href="https://github.com/cchiehyu/kanbas-react-web-app-cs5610-fa24"> click here </a>
-      to my github<br />
     </div>
   );
 }

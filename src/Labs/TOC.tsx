@@ -53,6 +53,16 @@ export default function TOC() {
         </Link>
       </li>
 
+            {/* Lab 5 Link */}
+            <li className="nav-item">
+        <Link
+          to="/Labs/Lab5"
+          className={`nav-link ${pathname.includes("Lab5") ? "active" : ""}`}
+        >
+          Lab 5
+        </Link>
+      </li>
+
       {/* Kanbas Link */}
       <li className="nav-item">
         <Link to="/Kanbas" className="nav-link">
@@ -63,7 +73,7 @@ export default function TOC() {
       {/* LinkedIn Link */}
       <li className="nav-item">
         <a
-          href="https://www.linkedin.com/in/alexngan326/"
+          href="https://www.linkedin.com/in/xiyuan/"
           className="nav-link"
           target="_blank"
           rel="noopener noreferrer"
@@ -75,14 +85,37 @@ export default function TOC() {
       {/* GitHub Link */}
       <li className="nav-item">
         <a
-          href="https://github.com/Alexnhw1999/kanbas-react-web-app"
+          href="https://github.com/XiyuanTu/kanbas-react-web-app"
           className="nav-link"
           target="_blank"
           rel="noopener noreferrer"
         >
-          GitHub
+          GitHub - Frontend(React App)
+        </a>
+      </li>
+
+      <li className="nav-item">
+        <a
+          href="https://github.com/XiyuanTu/kanbas-server"
+          className="nav-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub - Backend(NodeJS Server)
+        </a>
+      </li>
+
+      <li className="nav-item">
+        <a
+          href="https://kanbas-server-7685d332b718.herokuapp.com/"
+          className="nav-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Heroku - Backend(NodeJS Server)
         </a>
       </li>
     </ul>
+    
   );
 }
